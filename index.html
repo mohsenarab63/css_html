@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="header" style="height: 50px">
+      <div id="header_left" style="display: flex; gap: 10px">
+        <div class="header_left_item">خانه</div>
+        <div class="header_left_item">پست‌ها</div>
+        <div class="header_left_item">پیام‌ها</div>
+      </div>
+      <div id="header_center" style="">
+        <input
+          type="text"
+          placeholder="جستجو"
+          id="search"
+          style="padding: 5px"
+        />
+        <span>
+          <svg
+            width="20"
+            hidden="20"
+            class="svg-icon search-icon"
+            aria-labelledby="title desc"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 19.9 19.7"
+          >
+            <g class="search-path" fill="none" stroke="#848F91">
+              <path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4" />
+              <circle cx="8" cy="8" r="7" />
+            </g>
+          </svg>
+        </span>
+      </div>
+      <div id="header_right" style="">
+        <button>لاگین</button>
+        <button>ثبت نام</button>
+        <button>راهنما</button>
+        <button>ارتباط</button>
+      </div>
+    </div>
+
+    <div
+      id="main"
+      style="display: flex; justify-content: space-around; height: 300px"
+    >
+      <div id="main_left" style="background-color: red; width: 40%">
+        main left
+      </div>
+      <div id="main_right" style="background-color: #aaa; width: 20%">
+        <div class="sidbar_item" style="display: flex">
+          <div>ورزشی</div>
+          <div class="label">3</div>
+        </div>
+
+        <div class="sidbar_item" style="display: flex">
+          <div>هنری</div>
+          <div class="label">4</div>
+        </div>
+        <div class="sidbar_item" style="display: flex">
+          <div>سیاسی</div>
+          <div class="label">5</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">footer</div>
+
+    <style>
+      #header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        background: #ccc;
+        align-items: center;
+      }
+
+      #header_right {
+        /* background-color: purple; */
+        display: flex;
+        gap: 2rem;
+      }
+
+      #heder_center {
+        display: flex;
+        background-color: #333;
+        padding: 5px;
+      }
+
+      #search {
+        text-align: right;
+      }
+
+      .sidbar_item {
+        display: flex;
+        justify-content: space-between;
+        direction: rtl;
+        background-color: #ccc;
+        margin: 4px 5px;
+        padding: 2px 5px;
+        cursor: pointer;
+      }
+
+      .sidbar_item:hover {
+        background: #333;
+        color: #ccc;
+      }
+
+      .label {
+        border: 1px solid #333;
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .header_left_item {
+        background-color: #ccc;
+        border: 1px solid #333;
+        padding: 5px 10px;
+      }
+    </style>
+  </body>
+</html>
