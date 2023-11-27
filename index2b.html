@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="header" style="display: flex; height: 20px">
+      <div id="header_item_1" style="background-color: #e09393; flex: 1">
+        news
+      </div>
+      <div
+        id="header_item_2"
+        style="background-color: #ccc; flex: 1"
+        onmouseover="fn1() "
+        onmouseleave="fn2() "
+      >
+        <span>Categories</span>
+        <div
+          id="menus"
+          style="
+            width: 300px;
+            height: 100px;
+            background-color: #bbb;
+            display: none;
+          "
+        >
+          <div>cat 1</div>
+          <div>cat 2</div>
+          <div>cat 3</div>
+        </div>
+      </div>
+      <div id="header_item_3" style="background-color: #e09393; flex: 1">
+        economics
+      </div>
+    </div>
+
+    <script>
+      function fn1() {
+        document.getElementById('menus').style.display = 'block'
+      }
+
+      function fn2() {
+        document.getElementById('menus').style.display = 'none'
+      }
+    </script>
+  </body>
+</html>
