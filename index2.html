@@ -19,7 +19,7 @@
         id="header_item_2"
         style="background-color: #ccc"
       >
-        <span> دسته بندی </span>
+        <span onmouseover="alert('کلیک')"> دسته بندی </span>
 
         <div id="menus">
           <div id="menu_1">ورزشی</div>
@@ -41,6 +41,11 @@
         font-size: 24px;
       }
 
+      #menus {
+        background: #bbb;
+        border: 1px solid #333;
+      }
+
       #header {
         background-color: #ccc;
         display: flex;
@@ -57,5 +62,11 @@
         flex: 1;
       }
     </style>
+
+    <script>
+      function fn1() {
+        console.log('ssss')
+      }
+    </script>
   </body>
 </html>
