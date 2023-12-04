@@ -1,0 +1,30 @@
+#login_container {
+  background-color: #ccc;
+  width: 500px;
+  margin: 53px auto;
+  height: 400px;
+  direction: rtl;
+}
+
+#login_header {
+  background: green;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.body_row {
+  padding: 12px 30px;
+  margin: 5px auto;
+}
+
+.body_label {
+  width: 100px;
+  display: inline-block;
+}
+
+.btn_login {
+  margin-right: 80px;
+}
