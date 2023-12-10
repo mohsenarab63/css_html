@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="login_container">
+      <div id="login_header">register</div>
+
+      <form action="" onsubmit="return check_validation()">
+        <div id="login_body">
+          <div class="body_row">
+            <span class="body_label"> ایمیل </span>
+            <input class="body_input" type="text" />
+          </div>
+          <div class="body_row">
+            <span class="body_label"> رمز عبور </span>
+            <input class="body_input" id="password" type="password" />
+          </div>
+
+          <div id="error_password" class="error"></div>
+
+          <div class="body_row">
+            <span class="body_label"> تکرار رمز عبور </span>
+            <input class="body_input" id="confirm_password" type="password" />
+          </div>
+
+          <div id="error_confirm_password" class="error"></div>
+
+          <div class="body_row">
+            <span class="body_label"> </span>
+            <select name="" id="register_select">
+              <option value="">مرد</option>
+              <option value="">زن</option>
+            </select>
+          </div>
+          <div class="body_row">
+            <button class="btn_login" type="submit">ثبت نام</button>
+          </div>
+          <div class="body_row">
+            <a href="login.html">آیا قبلا ثبت نام کرده اید؟ </a>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <style>
+      .error {
+        color: rgb(182, 40, 40);
+        text-align: center;
+      }
+
+      .error_input {
+        border: 1px solid red;
+      }
+    </style>
+
+    <script>
+      function check_validation() {
+        var error_password_Input = document.getElementById('error_password')
+
+        var error_con_password_Input = document.getElementById(
+          'error_confirm_password'
+        )
+
+        var password_Input = document.getElementById('password')
+
+        var confirm_password_Input = document.getElementById('confirm_password')
+
+        var password_value = password_Input.value.trim()
+
+        if (password_value == '') {
+          error_password_Input.innerText = 'رمز عبور خالی است'
+          password_Input.classList.add('error_input')
+        } else {
+          error_password_Input.innerText = ''
+          password_Input.classList.remove('error_input')
+
+          if (password_value.length < 6) {
+            error_password_Input.innerText =
+              '  طول رمز عبور حداقل ۶ کاراکتر باید باشد '
+            password_Input.classList.add('error_input')
+          } else {
+            var confirm_Value = confirm_password_Input.value
+            console.log('confirm_Value: ', confirm_Value)
+            if (confirm_Value != password_value) {
+              error_con_password_Input.innerText =
+                'رمز عبور با تکرار آن برابر  نیست'
+              confirm_password_Input.classList.add('error_input')
+            }
+          }
+        }
+
+        console.log(password_value.length)
+
+        return false
+      }
+    </script>
+  </body>
+</html>

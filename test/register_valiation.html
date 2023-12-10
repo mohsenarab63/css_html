@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="login_container">
+      <form
+        onsubmit="return sendData();"
+        method="post"
+        action="register_valiation.html"
+      >
+        <div id="login_header">register</div>
+        <div id="login_body">
+          <div class="body_row">
+            <span class="body_label"> ایمیل </span>
+            <input
+              class="body_input"
+              name="email"
+              type="email"
+              required
+              oninvalid="this.setCustomValidity('لطفاً یک آدرس ایمیل معتبر وارد کنید.')"
+              style="direction: ltr"
+            />
+          </div>
+          <div id="email_error" class="error"></div>
+          <div class="body_row">
+            <span class="body_label"> رمز عبور </span>
+            <input
+              class="body_input"
+              id="password"
+              name="password"
+              type="password"
+            />
+          </div>
+          <div id="password_error" class="error"></div>
+          <div class="body_row">
+            <span class="body_label"> تکرار رمز عبور </span>
+            <input class="body_input" name="re_password" type="password" />
+          </div>
+          <div class="body_row">
+            <span class="body_label"> </span>
+            <select name="sex" id="register_select">
+              <option value="">مرد</option>
+              <option value="">زن</option>
+            </select>
+          </div>
+          <div class="body_row">
+            <button class="btn_login" type="submit">ثبت نام</button>
+          </div>
+          <div class="body_row">
+            <a href="login.html">آیا قبلا ثبت نام کرده اید؟ </a>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <style>
+      .body_row input {
+        outline: 0;
+      }
+      .error {
+        text-align: center;
+        color: #933333;
+      }
+
+      .input_error {
+        border: 2px solid #ff3860;
+      }
+      .input_success {
+        border: 2px solid #268a8a;
+      }
+    </style>
+
+    <script>
+      function sendData(e) {
+        console.log('sendData')
+        var error = 0
+
+        var passwordInput = document.getElementById('password')
+        var passwordErrorInput = document.getElementById('password_error')
+
+        var password = passwordInput.value
+        if (password.length < 6) {
+          error = 1
+
+          passwordErrorInput.innerText = 'طول رمز عبور نباید از ۶ کمتر باشد'
+          passwordInput.classList.add('input_error')
+          passwordInput.classList.remove('input_success')
+        } else {
+          passwordErrorInput.innerText = ''
+          passwordInput.classList.remove('input_error')
+          passwordInput.classList.add('input_success')
+        }
+
+        return false
+      }
+    </script>
+  </body>
+</html>
