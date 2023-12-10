@@ -14,7 +14,13 @@
         <div id="login_body">
           <div class="body_row">
             <span class="body_label"> ایمیل </span>
-            <input class="body_input" type="text" />
+            <input
+              style="direction: ltr; text-align: left"
+              class="body_input"
+              type="email"
+              required
+              oninvalid="this.setCustomValidity('لطفاً یک آدرس ایمیل معتبر وارد کنید.')"
+            />
           </div>
           <div class="body_row">
             <span class="body_label"> رمز عبور </span>
@@ -60,6 +66,7 @@
 
     <script>
       function check_validation() {
+        var error = 0
         var error_password_Input = document.getElementById('error_password')
 
         var error_con_password_Input = document.getElementById(
@@ -72,14 +79,21 @@
 
         var password_value = password_Input.value.trim()
 
+        error_password_Input.innerText = ''
+        error_con_password_Input.innerText = ''
+        password_Input.classList.remove('error_input')
+        confirm_password_Input.classList.remove('error_input')
+
         if (password_value == '') {
           error_password_Input.innerText = 'رمز عبور خالی است'
           password_Input.classList.add('error_input')
+          error = 1
         } else {
           error_password_Input.innerText = ''
           password_Input.classList.remove('error_input')
 
           if (password_value.length < 6) {
+            error = 1
             error_password_Input.innerText =
               '  طول رمز عبور حداقل ۶ کاراکتر باید باشد '
             password_Input.classList.add('error_input')
@@ -90,13 +104,19 @@
               error_con_password_Input.innerText =
                 'رمز عبور با تکرار آن برابر  نیست'
               confirm_password_Input.classList.add('error_input')
+              error = 1
             }
           }
         }
 
         console.log(password_value.length)
+        console.log('error: ', error)
 
-        return false
+        if (error == 1) {
+          return false
+        } else {
+          return true
+        }
       }
     </script>
   </body>
