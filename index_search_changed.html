@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <button id="search_button" onclick="search()">search</button>
+    <div id="search_box">
+      <div id="search_input_box" style="display: flex">
+        <input type="text" name="" id="search_input" onkeyup="search()" />
+        <button>search</button>
+      </div>
+
+      <div id="search_results"></div>
+    </div>
+
+    <style>
+      #search_box {
+        margin: 50px auto;
+        width: 300px;
+        text-align: center;
+        position: relative;
+      }
+
+      #search_input_box {
+        width: 300px;
+        height: 30px;
+      }
+
+      #search_input {
+        padding: 5px 20px;
+        border-radius: 5px;
+      }
+
+      #search_results {
+        position: absolute;
+        top: 44px;
+        left: 0;
+        height: 100px;
+        width: 343px;
+        background-color: #ddd;
+        overflow-y: scroll;
+      }
+
+      .row {
+        color: red;
+        border: 1px solid #999;
+        padding: 2px 10px;
+        margin: 5px 10px;
+        border-radius: 5px;
+      }
+    </style>
+
+    <script>
+      function search(event) {
+        var array = [
+          'arrow',
+          'article',
+          'apple',
+          'antique',
+          'ardf',
+          'arfff',
+          'asde',
+        ]
+
+        var search_key = document.getElementById('search_input').value
+        console.log('search_key:', search_key)
+
+        // console.log(array[3])
+        var search_result = document.getElementById('search_results')
+
+        var result_str = ''
+        search_result.innerHTML = ''
+
+        var var1 = ' footabll is very good '
+
+        array.forEach((item) => {
+          if (item.includes(search_key)) {
+            var div_row = '<div class="row">' + item + '</div>'
+            search_result.innerHTML += div_row
+          }
+        })
+
+        // for (let i = 0; i < array.length; ++i) {
+        //   if (array[i].indexOf(search_key) >= 0) {
+        //     var div_row = '<div class="row">' + array[i] + '</div>'
+        //     search_result.innerHTML += div_row
+        //     //console.log(array[i])
+        //     // result_str = result_str + array[i] ;
+        //   }
+        // }
+        //console.log(result_str)
+        //search_result.innerHTML = result_str
+      }
+    </script>
+  </body>
+</html>
