@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" onsubmit="return check_validation()">
+      <div id="register_box">
+        <div id="title">ثبت نام</div>
+        <div class="body_row">
+          <span class="row_label"> ایمیل </span>
+          <input type="text" name="" id="email" />
+        </div>
+        <div class="body_row">
+          <span class="row_label"> رمز عبور </span>
+          <input type="password" name="" id="password" />
+          <div class="error">خطای رمز عبور</div>
+        </div>
+        <div id="password_error" class="error"></div>
+        <div class="body_row">
+          <span class="row_label"> تکرار رمز عبور </span>
+          <input type="password" name="" id="confirsm_password" />
+          <div class="error">خطای تکرار رمز عبور</div>
+        </div>
+        <div id="confirsm_password_error" class="error"></div>
+        <div class="body_row">
+          <span class="row_label"> انتخاب جنسیت </span>
+          <select name="" id="jensiat">
+            <option value="">انتخاب جنسیت</option>
+            <option value="male">مرد</option>
+            <option value="female">زن</option>
+          </select>
+          <div class="error">خطای جنسیت</div>
+        </div>
+        <div id="jensiat_password_error" class="error"></div>
+        <div class="body_row" style="text-align: center">
+          <button id="register_btn" type="submit">ثبت نام</button>
+        </div>
+      </div>
+    </form>
+
+    <script>
+      function check_validation() {
+        var email_input = document.getElementById('email')
+        var password_input = document.getElementById('password')
+        var confirsm_password_input =
+          document.getElementById('confirsm_password')
+
+        var jensiat_input = document.getElementById('jensiat')
+
+        // خالی کردن خطاها
+
+        password_input.classList.remove('error_input')
+        password_error.innerText = ''
+        confirsm_password_input.classList.remove('error_input')
+        confirsm_password_error.innerText = ''
+
+        console.log(
+          email_input.value,
+          confirsm_password_input.value,
+          confirsm_password_input.value,
+          jensiat_input.value
+        )
+
+        if (password_input.value == '') {
+          // console.log('رمز عبور خالی است')
+          password_input.classList.add('error_input')
+          password_error.innerText = 'لطفا فیلد رمز عبور را پر کنید'
+        } else if (password_input.value.length < 6) {
+          password_error.innerText =
+            'طول فیلد رمز عبور حداقل باید ۶ کاراکتر باشد '
+
+          password_input.classList.add('error_input')
+        }
+
+        if (confirsm_password_input.value == '') {
+          // console.log('رمز عبور خالی است')
+          confirsm_password_input.classList.add('error_input')
+          password_error.innerText = 'لطفا فیلد رمز عبور را پر کنید'
+        } else if (confirsm_password_input.value.length < 6) {
+          password_error.innerText =
+            'طول فیلد رمز عبور حداقل باید ۶ کاراکتر باشد '
+
+          confirsm_password_input.classList.add('error_input')
+        }
+
+        return false
+      }
+    </script>
+
+    <style>
+      .error {
+        color: rgb(182, 40, 40);
+        text-align: center;
+      }
+
+      .error_input {
+        border: 1px solid red;
+      }
+
+      #title {
+        height: 40px;
+        background-color: green;
+        text-align: center;
+        font-weight: bold;
+        width: 100%;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #register_btn {
+        width: 70px;
+        height: 29px;
+        background-color: green;
+        color: #fff;
+        border: navajowhite;
+        border-radius: 5px;
+      }
+      #register_box {
+        margin: 50px auto;
+        padding: 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 400px;
+        direction: rtl;
+      }
+
+      .body_row {
+        margin: 30px 5px;
+      }
+
+      .row_label {
+        width: 100px;
+        display: inline-block;
+        margin-right: 20px;
+      }
+    </style>
+  </body>
+</html>

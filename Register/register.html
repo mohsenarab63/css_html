@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="register_box">
+      <div id="title">ثبت نام</div>
+      <div class="body_row">
+        <span class="row_label"> ایمیل </span>
+        <input type="text" name="" id="email" />
+      </div>
+      <div class="body_row">
+        <span class="row_label"> رمز عبور </span>
+        <input type="password" name="" id="password" />
+      </div>
+      <div class="body_row">
+        <span class="row_label"> تکرار رمز عبور </span>
+        <input type="password" name="" id="confirsm_password" />
+      </div>
+      <div class="body_row">
+        <span class="row_label"> انتخاب جنسیت </span>
+        <select name="" id="jensiat">
+          <option value="">انتخاب جنسیت</option>
+          <option value="male">مرد</option>
+          <option value="female">زن</option>
+        </select>
+      </div>
+      <div class="body_row" style="text-align: center">
+        <button id="register_btn">ثبت نام</button>
+      </div>
+    </div>
+
+    <script></script>
+
+    <style>
+      #title {
+        height: 40px;
+        background-color: green;
+        text-align: center;
+        font-weight: bold;
+        width: 100%;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #register_btn {
+        width: 70px;
+        height: 29px;
+        background-color: green;
+        color: #fff;
+        border: navajowhite;
+        border-radius: 5px;
+      }
+      #register_box {
+        margin: 50px auto;
+        padding: 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 400px;
+        direction: rtl;
+      }
+
+      .body_row {
+        margin: 30px 5px;
+      }
+
+      .row_label {
+        width: 100px;
+        display: inline-block;
+        margin-right: 20px;
+      }
+    </style>
+  </body>
+</html>

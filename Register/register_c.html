@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" onsubmit="return check_validation()">
+      <div id="register_box">
+        <div id="title">ثبت نام</div>
+        <div id="errors_box"></div>
+        <div class="body_row">
+          <span class="row_label"> ایمیل </span>
+          <input type="text" name="" id="email" />
+        </div>
+        <div class="body_row">
+          <span class="row_label"> رمز عبور </span>
+          <input type="password" name="" id="password" />
+        </div>
+        <div class="body_row">
+          <span class="row_label"> تکرار رمز عبور </span>
+          <input type="password" name="" id="re_password" />
+        </div>
+        <div class="body_row">
+          <span class="row_label"> انتخاب جنسیت </span>
+          <select name="" id="jensiat">
+            <option value="">انتخاب جنسیت</option>
+            <option value="male">مرد</option>
+            <option value="female">زن</option>
+          </select>
+        </div>
+        <div class="body_row" style="text-align: center">
+          <button id="register_btn" type="submit">ثبت نام</button>
+        </div>
+      </div>
+    </form>
+
+    <script>
+      function check_validation() {
+        var email_input = document.getElementById('email')
+        var password_input = document.getElementById('password')
+        var re_password_input = document.getElementById('re_password')
+        var jensiat_input = document.getElementById('jensiat')
+
+        var errors_box = document.getElementById('errors_box')
+
+        // خالی کردن خطاها
+        email_input.classList.remove('error_input')
+        password_input.classList.remove('error_input')
+        errors_box.innerHTML = ''
+        var errors = []
+
+        var error_exist = 0
+
+        // بررسی خطاها
+
+        if (email_input.value == '') {
+          email_input.classList.add('error_input')
+          errors.push('لطفا فیلد ایمیل را پر کنید')
+          error_exist = 1
+        }
+
+        if (password_input.value == '') {
+          password_input.classList.add('error_input')
+          errors.push('لطفا فیلد رمز عبور را پر کنید')
+          error_exist = 1
+        } else if (password_input.value.length < 6) {
+          error_exist = 1
+          password_input.classList.add('error_input')
+          errors.push(' طول فیلد رمز عبور حداقل باید ۶ کارکتر باشد    ')
+        }
+
+        if (errors.length > 0) {
+          for (var i = 0; i < errors.length; ++i) {
+            console.log('eee:', errors[i])
+            errors_box.innerHTML += "<div class='error'>" + errors[i] + '</div>'
+          }
+        }
+
+        console.log('errors:', errors)
+
+        console.log(email_input.value, password_input.value)
+
+        if (error_exist == 1) {
+          return false
+        } else {
+          return true
+        }
+      }
+    </script>
+
+    <style>
+      .error {
+        color: rgb(182, 40, 40);
+        text-align: center;
+      }
+
+      .error_input {
+        border: 1px solid red;
+      }
+
+      #title {
+        height: 40px;
+        background-color: green;
+        text-align: center;
+        font-weight: bold;
+        width: 100%;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #register_btn {
+        width: 70px;
+        height: 29px;
+        background-color: green;
+        color: #fff;
+        border: navajowhite;
+        border-radius: 5px;
+      }
+      #register_box {
+        margin: 50px auto;
+        padding: 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 400px;
+        direction: rtl;
+      }
+
+      .body_row {
+        margin: 30px 5px;
+      }
+
+      .row_label {
+        width: 100px;
+        display: inline-block;
+        margin-right: 20px;
+      }
+    </style>
+  </body>
+</html>
